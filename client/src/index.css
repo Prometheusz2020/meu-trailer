@@ -1,0 +1,231 @@
+:root {
+  /* Paleta de Cores Moderna */
+  --bg: #f8fafc;
+  --dark: #0f172a;
+  --blue: #2563eb;
+  --blue-light: #dbeafe;
+  --green: #10b981;
+  --red: #ef4444;
+  --gray: #64748b;
+  --white: #ffffff;
+  
+  /* Efeitos */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+  --radius: 12px;
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent; /* Remove o brilho azul ao tocar no celular */
+}
+
+body { 
+  margin: 0; 
+  font-family: 'Inter', -apple-system, sans-serif; 
+  background: var(--bg); 
+  color: var(--dark);
+  line-height: 1.5;
+}
+
+/* --- Layout Principal --- */
+.app-container { 
+  min-height: 100vh; 
+  display: flex; 
+  flex-direction: column; 
+}
+
+/* --- Navegação Superior (Header) --- */
+.nav-header { 
+  background: var(--dark);
+  padding: 10px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.app-branding {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.brand-name {
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--white);
+}
+
+.brand-suffix {
+  color: var(--blue);
+  font-size: 0.7rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.nav-links { 
+  display: flex; 
+  justify-content: space-between; 
+  gap: 8px;
+}
+
+.nav-btn { 
+  flex: 1;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: #94a3b8; 
+  padding: 10px 5px;
+  font-size: 0.65rem;
+  border-radius: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+
+.nav-btn.active { 
+  background: var(--blue);
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* --- Barra de Categorias --- */
+.cat-bar { 
+  display: flex; 
+  gap: 10px; 
+  padding: 12px; 
+  overflow-x: auto; 
+  background: var(--white);
+  border-bottom: 1px solid #e2e8f0;
+  scrollbar-width: none; /* Esconde scroll no Firefox */
+}
+.cat-bar::-webkit-scrollbar { display: none; } /* Esconde scroll no Chrome/Safari */
+
+.cat-btn { 
+  padding: 8px 20px; 
+  border-radius: 20px; 
+  border: 1px solid #e2e8f0; 
+  background: var(--white); 
+  white-space: nowrap; 
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gray);
+  transition: var(--transition);
+}
+
+.cat-btn.active { 
+  background: var(--dark); 
+  color: var(--white); 
+  border-color: var(--dark);
+}
+
+/* --- Cards e Listas --- */
+.container-interno { 
+  padding: 16px; 
+  padding-bottom: 240px;
+}
+
+.card-pedido {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 12px;
+  margin-bottom: 10px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid #f1f5f9;
+  transition: var(--transition);
+}
+
+.card-pedido.selecionado {
+  background: #f0f7ff;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 1px var(--blue);
+}
+
+.card-pedido:active {
+  transform: scale(0.98);
+}
+
+/* Badge de Quantidade */
+.qtd-badge-cardapio {
+  background: var(--blue);
+  color: var(--white);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.75rem;
+  border: 2px solid var(--white);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* --- Carrinho (Rodapé Fixo) --- */
+.footer-caixa { 
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px); /* Efeito de vidro */
+  padding: 20px; 
+  border-top: 1px solid #e2e8f0;
+  border-radius: 24px 24px 0 0; 
+  box-shadow: 0 -10px 25px rgba(0,0,0,0.05);
+  z-index: 999;
+}
+
+.input-geral { 
+  width: 100%;
+  padding: 14px; 
+  border-radius: var(--radius); 
+  border: 1px solid #e2e8f0; 
+  background: #f8fafc;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.input-geral:focus {
+  outline: none;
+  border-color: var(--blue);
+  background: var(--white);
+}
+
+/* --- Botões de Ação --- */
+.btn-pix, .btn-concluir { 
+  background: var(--green); 
+  color: var(--white); 
+  border: none; 
+  padding: 14px; 
+  border-radius: var(--radius); 
+  font-weight: 700; 
+  flex: 1;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+
+.btn-dinheiro, .btn-cancelar { 
+  background: var(--dark); 
+  color: var(--white); 
+  border: none; 
+  padding: 14px; 
+  border-radius: var(--radius); 
+  font-weight: 700; 
+  flex: 1;
+}
+
+.btn-pix:active, .btn-dinheiro:active {
+  transform: scale(0.96);
+}
+
+/* Animações */
+@keyframes pop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}

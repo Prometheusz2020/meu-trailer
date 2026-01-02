@@ -1,0 +1,25 @@
+# --- DEPENDÊNCIAS (Pastas pesadas que o npm recria) ---
+**/node_modules/
+
+# --- AMBIENTE E SENHAS (Não envie suas chaves do Supabase!) ---
+**/.env
+**/.env.local
+**/.env.production
+.env*
+
+# --- COMPILAÇÃO (Arquivos gerados pelo Vite/Build) ---
+**/dist/
+**/build/
+.vercel/
+
+# --- LOGS E CACHE ---
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.eslintcache
+
+# --- ARQUIVOS DO SISTEMA E IDE ---
+.DS_Store
+.vscode/
+.idea/
+Thumbs.db
